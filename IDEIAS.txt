@@ -1,0 +1,58 @@
+FIXO (*)
+ALTERAVEL (~)
+TEM_ID (&)
+
+--------------------------------------------
+
+ORDEM:
+	CLIENTE:
+		NOME_CLIENTE: ~
+		TELEFONE_CLIENTE: ~
+		ENDEREÇO: ~
+			BAIRRO ~&
+			RUA ~
+			NUM ~
+			REFERENCIA ~
+	PEDIDO:
+		ID_HAMBURGUER: ~&
+			VALOR *
+			COMENTARIO ~
+				PONTO DO HAMBURGUER ~&
+				DETALHE_CLIENTE ~
+		ID_BEBIDA: ~&
+			VALOR *
+	PAGAMENTO:
+		VALOR_PEDIDO *
+		MEIO_PAGAMENTO ~&
+			CARTAO ~
+				DEBITO
+				CREDITO
+			DINHEIRO
+				TROCO
+
+
+--------------------------------------------
+
+FORMULA_PEDIDO -> SOMA_PEDIDOS + TAXA_ENTREGA
+
+--------------------------------------------
+
+MENU:
+	CADASTRAR ORDEM
+	EDITAR ORDEM
+	RETIRAR ORDEM
+	VER ORDENS
+
+--------------------------------------------
+
+0 mal
+1 mal-ponto
+2 ponto
+3 medio-bem
+4 bem
+
+--------------------------------------------
+
+1 Coca-cola
+2 Guarana
+3 Sem Bebida
