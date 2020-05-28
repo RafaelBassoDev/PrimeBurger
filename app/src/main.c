@@ -9,9 +9,8 @@ int main(int argc, char *argv[]) {
 	
 	setlocale(LC_ALL, "Portuguese");
 	
-	unsigned short int choice;
+	Client *client = createClient();
 	
-	Client *client = malloc(sizeof(Client));
 	
 	switch(menu()){
 		case 1:

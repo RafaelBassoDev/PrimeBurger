@@ -16,6 +16,8 @@ typedef struct client{
 	Address address;
 }Client;
 
+Client *createClient();
+
 int setClientInfo(Client *client);
 
 int setClientName(Client *client);

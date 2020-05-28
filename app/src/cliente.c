@@ -4,6 +4,15 @@
 
 #include "cliente.h"
 
+Client *createClient(){
+	Client *client = (Client *)malloc(sizeof(Client));
+	
+	if(client != NULL){
+		return client;
+	}
+	
+}
+
 int setClientInfo(Client *client){
 		
 	setClientName(client);
@@ -88,12 +97,11 @@ int updateClientInfo(Client *client){
 
 int setClientName(Client *client){
 	char tmpStr[STRING_MAX_NAME_LENGHT];
-	
-	fflush(stdin);
-	
+
 	do{
 		system("cls");
-		printf("Nome do Cliente:\n> ");
+		printf("Nome do Cliente:\n> ");	
+		fflush(stdin);
 		fgets(tmpStr, sizeof(tmpStr), stdin);
 	} while(strlen(tmpStr) < 3);
 	
@@ -154,11 +162,13 @@ int setClientNeighborhood(Client *client){
 int setClientStreet(Client *client){
 	char tmpStr[STRING_MAX_ADDRESS_STREET_LENGTH];
 	
-	fflush(stdin);
+
 	
 	do{
 		system("cls");
 		printf("Rua do Cliente:\n> ");
+		
+		fflush(stdin);
 		fgets(tmpStr, sizeof(tmpStr), stdin);
 	} while(strlen(tmpStr) < 3);
 	
@@ -191,11 +201,12 @@ int setClientNumber(Client *client){
 int setClientAddressReference(Client *client){
 	char tmpStr[STRING_MAX_ADDRESS_REFERENCE_LENGHT];
 	
-	fflush(stdin);
 	
 	do{
 		system("cls");
 		printf("Ponto de referencia do Cliente:\n> ");
+		
+		fflush(stdin);
 		fgets(tmpStr, sizeof(tmpStr), stdin);
 	} while(strlen(tmpStr) < 3);
 	

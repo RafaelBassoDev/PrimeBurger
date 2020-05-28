@@ -28,4 +28,26 @@ typedef struct order {
 	Drink *drink;
 } Order;
 
+Order *createOrder();
+
+Hamburguer *createHamburguer(Order *order);
+
+Drink *createDrink(Order *order);
+
+int setHamburguerInfo(Order *order, Hamburguer *hamburguer);
+
+int setDrinkInfo(Order *order, Drink *drink);
+
+int setDrinkID(Drink *drink);
+
+int setDrinkPrice(Drink *drink, unsigned short int drinkId);
+
+int setHamburguerID(Hamburguer *hamburguer);
+
+float setHamburguerPrice(unsigned short int hamburguerId);
+
+int setHamburguerCondition(Hamburguer *hamburguer);
+
+int setHamburguerPreferences(Hamburguer *hamburguer);
+
 #endif
