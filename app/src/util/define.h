@@ -22,4 +22,12 @@ enum drinkId {
 	NO_DRINK
 };
 
+enum hamburguerId {
+	PRIME_DUPLO = 1,
+	SALAD_BURGUER,
+	PRIME_BURGUER,
+	PRIME_BARBECUE,
+	NO_HAMBURGUER
+};
+
 #endif
