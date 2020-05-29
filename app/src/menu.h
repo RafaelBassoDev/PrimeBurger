@@ -1,9 +1,9 @@
 #ifndef MENU_H
 #define MENU_H
 
-int menu();
+int menu(void);
 	
-int drawMenu();
+int drawMenu(void);
 
 int getMenuOption(int optionsQnt);
 

@@ -4,6 +4,7 @@
 
 #include "ordem.h"
 #include "util\define.h"
+#include "util\structs.h"
 
 Order *createOrder(){
 	Order *order = (Order *)malloc(sizeof(Order));
@@ -18,7 +19,6 @@ Order *createOrder(){
 		return order;
 	}
 	
-
 }
 
 Hamburguer *createHamburguer(Order *order){
@@ -65,7 +65,7 @@ Drink *createDrink(Order *order){
 int setHamburguerInfo(Order *order, Hamburguer *hamburguer){
 	
 	setHamburguerID(hamburguer);
-	setHamburguerPrice(hamburguer->id);
+	setHamburguerPrice(hamburguer);
 	setHamburguerCondition(hamburguer);
 	setHamburguerPreferences(hamburguer);
 	
@@ -90,7 +90,7 @@ int setDrinkID(Drink *drink){
 		printf("Bebida:\n\n");
 		printf("<1> Coca-Cola\n");
 		printf("<2> Guarana\n");
-		printf("<3> Sem bebida\n");
+		printf("<3> Sem bebida\n\n> ");
 		
 		fflush(stdin);
 		if(fgets(tmpStr, sizeof(tmpStr), stdin)){
@@ -138,7 +138,7 @@ int setHamburguerID(Hamburguer *hamburguer){
 		printf("<2> Salad Burguer\n");
 		printf("<3> Prime Burguer\n");
 		printf("<4> Prime barbecue\n");
-		printf("<5> Sem hamburguer\n");
+		printf("<5> Sem hamburguer\n\n> ");
 		
 		fflush(stdin);
 		if(fgets(tmpStr, sizeof(tmpStr), stdin)){
@@ -152,30 +152,32 @@ int setHamburguerID(Hamburguer *hamburguer){
 	return 0;
 }
 
-float setHamburguerPrice(unsigned short int hamburguerId){
+float setHamburguerPrice(Hamburguer *hamburguer){
+	int hamburguerId = hamburguer->id;
 	
 	switch(hamburguerId){
 		case PRIME_DUPLO:
-			return 19.99;
+			hamburguer->price = 19.99;
 			break;
 			
 		case SALAD_BURGUER:
-			return 15.99;
+			hamburguer->price = 15.99;
 			break;
 			
 		case PRIME_BURGUER:
-			return 11.99;
+			hamburguer->price = 11.99;
 			break;
 		
 		case PRIME_BARBECUE:
-			return 13.99;
+			hamburguer->price = 13.99;
 			break;
 		
 		case NO_HAMBURGUER:
-			return 0.0;
+			hamburguer->price = 0.0;
 			break;
 	}
 	
+	return 0;
 }
 
 int setHamburguerCondition(Hamburguer *hamburguer){
@@ -190,7 +192,7 @@ int setHamburguerCondition(Hamburguer *hamburguer){
 		printf("<2> Mal-Ponto\n");
 		printf("<3> Ponto\n");
 		printf("<4> Medio-Bem\n");
-		printf("<5> Bem\n");
+		printf("<5> Bem\n\n> ");
 		
 		fflush(stdin);
 		if(fgets(tmpStr, sizeof(tmpStr), stdin)){
@@ -210,7 +212,7 @@ int setHamburguerPreferences(Hamburguer *hamburguer){
 	
 	do{
 		system("cls");
-		printf("Preferencias do Hamburguer ('...' para pular):\n> ");
+		printf("Preferencias do Hamburguer ('...' para pular):\n\n> ");
 		
 		fflush(stdin);
 		fgets(tmpStr, sizeof(tmpStr), stdin);
@@ -229,3 +231,4 @@ int setHamburguerPreferences(Hamburguer *hamburguer){
 	
 	return 0;
 }
+

@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <string.h>
 
+#include "util\structs.h"
+
 #include "cliente.h"
 
 Client *createClient(){
@@ -23,6 +25,7 @@ int setClientInfo(Client *client){
 	setClientNumber(client);
 	setClientAddressReference(client);
 	
+	return 0;
 }
 
 int updateClientInfo(Client *client){
@@ -35,8 +38,7 @@ int updateClientInfo(Client *client){
 		printf("Alteracao de dados:\n\n");
 		printf("<1> Nome\n");
 		printf("<2> Telefone\n");
-		printf("<3> Endereco");
-		printf("> ");
+		printf("<3> Endereco\n\n> ");
 		
 		fflush(stdin);
 		if(fgets(tmpStr, sizeof(tmpStr), stdin)){
@@ -62,8 +64,7 @@ int updateClientInfo(Client *client){
 				printf("<1> Bairro\n");
 				printf("<2> Rua\n");
 				printf("<3> Numero\n");
-				printf("<4> Referência\n");
-				printf("> ");
+				printf("<4> Referência\n\n> ");
 				
 				fflush(stdin);
 				if(fgets(tmpStr, sizeof(tmpStr), stdin)){
@@ -92,7 +93,7 @@ int updateClientInfo(Client *client){
 			break;
 	}
 
-	
+	return 0;
 }
 
 int setClientName(Client *client){
@@ -100,7 +101,7 @@ int setClientName(Client *client){
 
 	do{
 		system("cls");
-		printf("Nome do Cliente:\n> ");	
+		printf("Nome do Cliente:\n\n> ");	
 		fflush(stdin);
 		fgets(tmpStr, sizeof(tmpStr), stdin);
 	} while(strlen(tmpStr) < 3);
@@ -116,7 +117,7 @@ int setClientTelephone(Client *client){
 	
 	do{
 		system("cls");
-		printf("Telefone do Cliente ('...' para pular):\n> ");
+		printf("Telefone do Cliente ('...' para pular):\n\n> ");
 		
 		fflush(stdin);
 		fgets(tmpStr, sizeof(tmpStr), stdin);
@@ -145,7 +146,7 @@ int setClientNeighborhood(Client *client){
 		
 		drawNeighborhoodPrices();
 		
-		printf("\nBairro do Cliente:\n> ");
+		printf("Bairro do Cliente:\n\n> ");
 		
 		fflush(stdin);
 		if(fgets(tmpStr, sizeof(tmpStr), stdin)){
@@ -162,11 +163,9 @@ int setClientNeighborhood(Client *client){
 int setClientStreet(Client *client){
 	char tmpStr[STRING_MAX_ADDRESS_STREET_LENGTH];
 	
-
-	
 	do{
 		system("cls");
-		printf("Rua do Cliente:\n> ");
+		printf("Rua do Cliente:\n\n> ");
 		
 		fflush(stdin);
 		fgets(tmpStr, sizeof(tmpStr), stdin);
@@ -184,7 +183,7 @@ int setClientNumber(Client *client){
 	do{
 		system("cls");
 				
-		printf("Num. da rua do Cliente:\n> ");
+		printf("Num. da rua do Cliente:\n\n> ");
 		
 		fflush(stdin);
 		if(fgets(tmpStr, sizeof(tmpStr), stdin)){
@@ -204,7 +203,7 @@ int setClientAddressReference(Client *client){
 	
 	do{
 		system("cls");
-		printf("Ponto de referencia do Cliente:\n> ");
+		printf("Ponto de referencia do Cliente:\n\n> ");
 		
 		fflush(stdin);
 		fgets(tmpStr, sizeof(tmpStr), stdin);

@@ -2,52 +2,28 @@
 #define ORDEM_H
 
 #include "util\define.h"
+#include "util\structs.h"
 
-typedef struct hamburguer{
-	unsigned short int id;
-	float price;
-	unsigned short int burguerConditionId;
-	char clientPreferences[STRING_MAX_BURGUER_PREFERENCES_LENGTH];
-	
-	struct hamburguer *next;
-	struct hamburguer *prev;
-} Hamburguer;
+Order *createOrder(void);
 
-typedef struct drink{
-	unsigned short int id;
-	float price;
-	
-	struct drink *next;
-	struct drink *prev;
-} Drink;
+Hamburguer *createHamburguer(Order *);
 
-typedef struct order {
-	unsigned short int hamburguerQtd;
-	unsigned short int drinkQtd;
-	Hamburguer *hamburguer;
-	Drink *drink;
-} Order;
+Drink *createDrink(Order *);
 
-Order *createOrder();
+int setHamburguerInfo(Order *, Hamburguer *);
 
-Hamburguer *createHamburguer(Order *order);
+int setDrinkInfo(Order *, Drink *);
 
-Drink *createDrink(Order *order);
+int setDrinkID(Drink *);
 
-int setHamburguerInfo(Order *order, Hamburguer *hamburguer);
+int setDrinkPrice(Drink *, unsigned short int drinkId);
 
-int setDrinkInfo(Order *order, Drink *drink);
+int setHamburguerID(Hamburguer *);
 
-int setDrinkID(Drink *drink);
+float setHamburguerPrice(Hamburguer *);
 
-int setDrinkPrice(Drink *drink, unsigned short int drinkId);
+int setHamburguerCondition(Hamburguer *);
 
-int setHamburguerID(Hamburguer *hamburguer);
-
-float setHamburguerPrice(unsigned short int hamburguerId);
-
-int setHamburguerCondition(Hamburguer *hamburguer);
-
-int setHamburguerPreferences(Hamburguer *hamburguer);
+int setHamburguerPreferences(Hamburguer *);
 
 #endif

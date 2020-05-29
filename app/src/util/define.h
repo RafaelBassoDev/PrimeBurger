@@ -30,4 +30,12 @@ enum hamburguerId {
 	NO_HAMBURGUER
 };
 
+// Payment options
+
+enum paymentId {
+	CREDIT,
+	DEBIT,
+	MONEY
+};
+
 #endif

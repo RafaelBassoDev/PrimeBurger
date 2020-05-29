@@ -2,36 +2,24 @@
 #define CLIENTE_H
 
 #include "util\define.h"
+#include "util\structs.h"
 
-typedef struct address{
-	unsigned short int neighborhood;
-	unsigned int number;
-	char street[STRING_MAX_ADDRESS_STREET_LENGTH];
-	char addressReference[STRING_MAX_ADDRESS_REFERENCE_LENGHT];
-}Address;
+Client *createClient(void);
 
-typedef struct client{
-	char name[STRING_MAX_NAME_LENGHT];
-	char telephone[STRING_MAX_TELEPHONE_NUMBER_LENGHT];
-	Address address;
-}Client;
+int setClientInfo(Client *);
 
-Client *createClient();
+int setClientName(Client *);
 
-int setClientInfo(Client *client);
+int setClientTelephone(Client *);
 
-int setClientName(Client *client);
+int setClientNeighborhood(Client *);
 
-int setClientTelephone(Client *client);
+int setClientStreet(Client *);
 
-int setClientNeighborhood(Client *client);
+int setClientNumber(Client *);
 
-int setClientStreet(Client *client);
+int setClientAddressReference(Client *);
 
-int setClientNumber(Client *client);
-
-int setClientAddressReference(Client *client);
-
-int drawNeighborhoodPrices();
+int drawNeighborhoodPrices(void);
 
 #endif

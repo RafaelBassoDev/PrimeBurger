@@ -29,7 +29,7 @@ int drawMenu(){
 
 int getMenuOption(int optionsQnt){
 	int option=0;
-	char str[2];
+	char str[10];
 	
 	do{
 
